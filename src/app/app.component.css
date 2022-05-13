@@ -1,0 +1,58 @@
+.wrapper {
+  border: 2px solid #8aa;
+  padding: 10px;
+}
+
+.items {
+  overflow: hidden;
+  display: flex;
+  gap: 20px;
+  scroll-behavior: smooth;
+}
+
+.item {
+  border: 2px solid #f99;
+  padding: 10px;
+  text-align: center;
+}
+
+.item-name {
+  font-weight: bold;
+}
+
+.controls {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.btn {
+  margin: auto 5px;
+  border: 1px solid #888;
+  background: #fff;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition-duration: .25s;
+}
+
+.btn:hover {
+  border-color: #000;
+  background: #ccc;
+}
+
+.control-indicators {
+  display: flex;
+  gap: 5px;
+}
+
+.control-indicator {
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  background-color: #f88;
+  cursor: pointer;
+}
+
+.control-indicator.active {
+  transform: scale(1.5);
+}
