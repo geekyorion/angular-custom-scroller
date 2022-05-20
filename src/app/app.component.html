@@ -1,31 +1,10 @@
 <div class="wrapper">
-  <div class="items" #itemsElement>
-    <div class="item" *ngFor="let item of items; let i = index">
-      <div class="item-id">{{ item.id }}</div>
-      <div class="item-name">{{ item.name }}</div>
-      <small>Item - {{ i + 1 }}</small>
-    </div>
+  <div class="scroller scroller_1">
+    <h3>Scroller 1 with {{ items_1.length }} items:</h3>
+    <app-custom-scroller [items]="items_1"></app-custom-scroller>
   </div>
-
-  <div class="controls">
-    <div class="control-indicators">
-      <div
-        class="control-indicator"
-        *ngFor="let indicator of indicatorButtons"
-        [class.active]="indicator.active"
-        (click)="handleIndicator(indicator)"
-      ></div>
-    </div>
-
-    <button
-      class="btn"
-      (click)="onHandleControl('left')"
-      [disabled]="controlButtonsDisable.left"
-    >&lt; Left</button>
-    <button
-      class="btn"
-      (click)="onHandleControl('right')"
-      [disabled]="controlButtonsDisable.right"
-    >Right &gt;</button>
+  <div class="scroller scroller_1">
+    <h3>Scroller 1 with {{ items_2.length }} items:</h3>
+    <app-custom-scroller [items]="items_2"></app-custom-scroller>
   </div>
 </div>
