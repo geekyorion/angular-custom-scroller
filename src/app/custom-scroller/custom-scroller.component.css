@@ -56,3 +56,17 @@
 .control-indicator.active {
   transform: scale(1.5);
 }
+
+.slider-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.input-slider {
+  width: 100%;
+}
+
+.slider-value {
+  min-width: 150px;
+}

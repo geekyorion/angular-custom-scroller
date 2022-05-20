@@ -10,6 +10,7 @@ const ceil = Math.ceil;
 export class CustomScrollerComponent implements OnInit, OnDestroy {
   @ViewChild('itemsElement', { static: true }) itemsElement!: ElementRef;
   @Input() items: Array<{name: string, id: number}> = [];
+  @Input() slider: boolean = false;
   observer: any;
   controlParameters!: { offsetWidth: number, scrollWidth: number, scrollLeft: number };
   controlButtonsDisable: { left: boolean, right: boolean } = { left: true, right: true };
@@ -82,6 +83,11 @@ export class CustomScrollerComponent implements OnInit, OnDestroy {
     this.controlParameters.scrollLeft = indicator.scrollLeft;
     this.itemsElement.nativeElement.scrollLeft = this.controlParameters.scrollLeft;
     this.syncIndicators();
+  }
+  
+  handleSlider(event: Event) {
+    this.controlParameters.scrollLeft = +(<HTMLInputElement>event.target).value || 0;
+    this.itemsElement.nativeElement.scrollLeft = this.controlParameters.scrollLeft;
   }
 
   ngOnDestroy(): void {

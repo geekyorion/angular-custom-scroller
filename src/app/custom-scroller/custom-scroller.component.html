@@ -8,24 +8,38 @@
   </div>
 
   <div class="controls">
-    <div class="control-indicators">
-      <div
-        class="control-indicator"
-        *ngFor="let indicator of indicatorButtons"
-        [class.active]="indicator.active"
-        (click)="handleIndicator(indicator)"
-      ></div>
+    <div class="normal-controls" *ngIf="!slider">
+      <div class="control-indicators">
+        <div
+          class="control-indicator"
+          *ngFor="let indicator of indicatorButtons"
+          [class.active]="indicator.active"
+          (click)="handleIndicator(indicator)"
+        ></div>
+      </div>
+  
+      <button
+        class="btn"
+        (click)="onHandleControl('left')"
+        [disabled]="controlButtonsDisable.left"
+      >&lt; Left</button>
+      <button
+        class="btn"
+        (click)="onHandleControl('right')"
+        [disabled]="controlButtonsDisable.right"
+      >Right &gt;</button>
     </div>
 
-    <button
-      class="btn"
-      (click)="onHandleControl('left')"
-      [disabled]="controlButtonsDisable.left"
-    >&lt; Left</button>
-    <button
-      class="btn"
-      (click)="onHandleControl('right')"
-      [disabled]="controlButtonsDisable.right"
-    >Right &gt;</button>
+    <div class="slider-control" *ngIf="slider">
+      <input
+        type="range"
+        [min]="0"
+        [max]="controlParameters.scrollWidth - controlParameters.offsetWidth"
+        [value]="controlParameters.scrollLeft"
+        class="input-slider"
+        (input)="handleSlider($event)"
+      />
+      <span class="slider-value">[ {{ controlParameters.scrollLeft }} / {{ controlParameters.scrollWidth - controlParameters.offsetWidth }} (px)]</span>
+    </div>
   </div>
 </div>

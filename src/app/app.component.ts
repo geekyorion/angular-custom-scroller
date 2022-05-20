@@ -10,10 +10,12 @@ export class AppComponent implements OnInit {
 
   items_1: Array<{name: string, id: number}> = [];
   items_2: Array<{name: string, id: number}> = [];
+  items_3: Array<{name: string, id: number}> = [];
 
   ngOnInit() {
     this.generateItems(50, this.items_1);
     this.generateItems(20, this.items_2);
+    this.generateItems(30, this.items_3);
   }
 
   generateItems(limit: number, items_array: Array<{name: string, id: number}>) {
